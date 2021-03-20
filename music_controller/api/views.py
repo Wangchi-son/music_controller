@@ -1,15 +1,15 @@
 from django.shortcuts import render
+from rest_framework import generics, status
 from .serializers import RoomSerializer, CreateRoomSerializer
 from .models import Room
-
-from rest_framework import generics, status
 from rest_framework.views import APIView
 from rest_framework.response import Response
+
 
 # Create your views here.
 
 
-class RoomView(generics.CreateAPIView):
+class RoomView(generics.ListAPIView):
     queryset = Room.objects.all()
     serializer_class = RoomSerializer
 
@@ -32,11 +32,11 @@ class CreateRoomView(APIView):
                 room.guest_can_pause = guest_can_pause
                 room.votes_to_skip = votes_to_skip
                 room.save(update_fields=['guest_can_pause', 'votes_to_skip'])
+                return Response(RoomSerializer(room).data, status=status.HTTP_200_OK)
             else:
                 room = Room(host=host, guest_can_pause=guest_can_pause,
                             votes_to_skip=votes_to_skip)
                 room.save()
+                return Response(RoomSerializer(room).data, status=status.HTTP_201_CREATED)
 
-            return Response(RoomSerializer(room).data, status=status.HTTP_201_CREATED)
-
-        return Response({'Bad Requset': 'Invalid data...'}, status-status.HTTP_400_BAD_REQUEST)
+        return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
