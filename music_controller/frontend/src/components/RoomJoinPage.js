@@ -12,14 +12,14 @@ export default class RoomJoinPage extends Component {
   }
   render() {
     return (
-      <Grid container spacing={1} alignItems="center">
-        <Grid item xs={12}>
+      <Grid container spacing={1}>
+        <Grid item xs={12} align="center">
           <Typography variant="h4" component="h4">
             Join a Room
           </Typography>
         </Grid>
 
-        <Grid item xs={12}>
+        <Grid item xs={12} align="center">
           <TextField
             error={this.state.eroor}
             label="Code"
@@ -28,6 +28,18 @@ export default class RoomJoinPage extends Component {
             helperText={this.state.error}
             variant="outlined"
           />
+        </Grid>
+
+        <Grid item xs={12} align="center">
+          <Button variant="contained" color="primary" onClick>
+            Enter Room
+          </Button>
+        </Grid>
+
+        <Grid item xs={12} align="center">
+          <Button variant="contained" color="secondary" to="/" component={Link}>
+            Back
+          </Button>
         </Grid>
       </Grid>
     );
