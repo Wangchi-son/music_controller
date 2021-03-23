@@ -15,10 +15,9 @@ export default class Room extends Component {
     return (
       <div>
         <h3>Host: {this.roomCode}</h3>
-        <p>votesToSkip: {this.state.votesToSkip}</p>
-        <p>guestCanPause: {this.state.guestCanPause}</p>
-        <p>isHost: {this.state.isHost}</p>
-        <p>1234</p>
+        <p>Votes: {this.state.votesToSkip}</p>
+        <p>Guest Can Pause: {this.state.guestCanPause}</p>
+        <p>Host: {this.state.isHost}</p>
       </div>
     );
   }
