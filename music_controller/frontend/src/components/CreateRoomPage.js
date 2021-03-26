@@ -15,7 +15,7 @@ export default class CreateRoomPage extends Component {
   static defaultProps = {
     votesToSkip: 2,
     guestCanPause: true,
-    uupdate: false,
+    update: false,
     roomCode: null,
     updateCallback: () => {},
   };
@@ -80,15 +80,17 @@ export default class CreateRoomPage extends Component {
   }
 
   renderUpdateButtons() {
-    <Grid item xs={12} align="center">
-      <Button
-        color="primary"
-        variant="contained"
-        onClick={this.handleRoomButtonPressed}
-      >
-        Update Room
-      </Button>
-    </Grid>;
+    return (
+      <Grid item xs={12} align="center">
+        <Button
+          color="primary"
+          variant="contained"
+          onClick={this.handleRoomButtonPressed}
+        >
+          Update Room
+        </Button>
+      </Grid>
+    );
   }
 
   render() {
