@@ -20,6 +20,11 @@ export default function Info(props) {
     return "Create page";
   }
 
+  useEffect(() => {
+    console.log("ran");
+    return () => console.log("cleanup");
+  });
+
   return (
     <Grid container spacing={1}>
       <Grid item xs={12} align="center">
