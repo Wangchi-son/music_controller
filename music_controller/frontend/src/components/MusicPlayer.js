@@ -68,6 +68,7 @@ export default class MusicPlayer extends Component {
                   this.skipSong();
                 }}
               >
+                {this.props.votes} / {this.props.votes_required}
                 <SkipNextIcon />
               </IconButton>
             </div>
