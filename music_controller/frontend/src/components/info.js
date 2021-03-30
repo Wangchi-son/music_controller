@@ -33,6 +33,19 @@ export default function Info(props) {
         </Typography>
       </Grid>
       <Grid item xs={12} align="center">
+        <IconButton
+          onClick={() => {
+            page === pages.CREATE ? setPage(pages.JOIN) : setPage(pages.CREATE);
+          }}
+        >
+          {page === pages.CREATE ? (
+            <NavigateBeforeIcon />
+          ) : (
+            <NavigateNextIcon />
+          )}
+        </IconButton>
+      </Grid>
+      <Grid item xs={12} align="center">
         <Button color="secondary" variant="contained" to="/" component={Link}>
           Back
         </Button>
